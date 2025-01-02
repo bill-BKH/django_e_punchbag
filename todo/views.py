@@ -1,5 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from .models import Todo
+from django.shortcut import get_object_or_404
 
 # Create your views here.
 
@@ -12,5 +13,10 @@ def add(request):
         
 
 def show(request):
-    task = Todo.objects.all()
-    return render(request, 'todo/show.html', {'task': task})
+    tasks = Todo.objects.all()
+    return render(request,'todo/show.html',{'tasks':tasks})
+
+def delete_task(request,todo_id):
+    todo = get_object_or_404(Todo,id=todo_id)
+    todo.delete()
+    return redirect('show')
