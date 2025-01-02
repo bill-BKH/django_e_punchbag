@@ -12,7 +12,5 @@ def add(request):
         
 
 def show(request):
-    if request.method == 'POST':
-        text = request.POST.get('todo_text')
-        date = request.POST.get('todo_date')
-    return render(request, 'todo/show.html')
+    task = Todo.objects.all()
+    return render(request, 'todo/show.html', {'task': task})
