@@ -1,6 +1,5 @@
-from django.shortcuts import render,redirect
+from django.shortcuts import render,redirect,get_object_or_404
 from .models import Todo
-from django.shortcut import get_object_or_404
 
 # Create your views here.
 

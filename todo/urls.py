@@ -5,7 +5,7 @@ from .views import add,show,delete_task
 
 
 urlpatterns = [
-    path('',views.add),
+    path('',views.add, name='add'),
     path('show/', views.show, name='show'),
     path('delete/<int:todo_id>/',delete_task,name='delete_task')
 ]
